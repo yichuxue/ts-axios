@@ -25,16 +25,16 @@ function deepMergeStrat(val1: any, val2: any): any {
   }
 }
 
-const stratKeysDeepMerge = ['headers']
-
-stratKeysDeepMerge.forEach(key => {
-  strats[key] = deepMergeStrat
-})
-
 const stratKeysFromVal2 = ['url', 'params', 'data']
 
 stratKeysFromVal2.forEach(key => {
   strats[key] = fromVal2Strat
+})
+
+const stratKeysDeepMerge = ['headers', 'auth']
+
+stratKeysDeepMerge.forEach(key => {
+  strats[key] = deepMergeStrat
 })
 
 export default function mergeConfig(
